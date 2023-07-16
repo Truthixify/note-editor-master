@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const NoteList = ({notes}) => {
+const NoteList = ({notes, loading}) => {
     const color = "#000"
     let bar = document.querySelectorAll(".category")
     let text = document.querySelectorAll(".text")
@@ -25,7 +25,7 @@ const NoteList = ({notes}) => {
     })
     return ( 
         <div className="note-list">
-            {!notes.length && <h2 className="empty">Seems you don't have any note, click the icon below to add new notes</h2>}
+            {!loading && notes.length === 0 && <h2 className="empty">Seems you don't have any note, click the icon below to add new notes</h2>}
             {notes.map(note=> (
                 <div className="note" key={note.id}>        
                     <Link to={`/notes/${note.id}`}>

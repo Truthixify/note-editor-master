@@ -8,7 +8,7 @@ const Home = () => {
     return ( 
         <div className="home">
             {loading && <div className="loading">Getting your notes....</div>}
-            {notes && <NoteList notes={notes} />}
+            {notes && <NoteList notes={notes} loading={loading} />}
             <div className="footer-home">
             <Link to="/create">
                 <button className="add">+</button>

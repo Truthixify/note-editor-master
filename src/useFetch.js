@@ -8,7 +8,14 @@ const useFetch = (url) => {
 
         setTimeout(()=> {
             try {
-                setData(JSON.parse(localStorage.getItem(url)))
+                if(JSON.parse(localStorage.getItem(url))) {
+                    setData(JSON.parse(localStorage.getItem(url)))
+                }
+                else {
+                    localStorage.setItem(url, JSON.stringify([]))
+                    setData(JSON.parse(localStorage.getItem(url)))
+                }
+
                 setLoading(false)
             }
             catch(err) {

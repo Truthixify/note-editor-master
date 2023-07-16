@@ -22,9 +22,9 @@ const CreateNewNote = () => {
         e.preventDefault()
         const note = {id, title, content, category, date: time}
 
-        if(localStorage.getItem("notes")) {
-            notes.push(note)
-        }
+        notes.push(note)
+
+        console.log(JSON.parse(localStorage.getItem("note")))
 
         setLoading(true)
 
